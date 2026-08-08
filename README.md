@@ -5,10 +5,10 @@ Softuni JS Back-End Workshop
 - [x]Initialize Project
 - [x]Add Express Server `npm i express`
 - [x]Config debugging and dev script
-- [ ]Add Workshop Resources
-- [ ]Setup Handlebars `npm i express-handlebars`
-- [ ]Setup static files
-- [ ]Render Home Page
+- [x]Add Workshop Resources
+- [x]Setup Handlebars `npm i express-handlebars`
+- [x]Render Home Page
+- [x]Setup static files
 - [ ]Render About Page
 - [ ]Add Layout
 ### Architecture and dynamic rendering
