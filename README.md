@@ -16,12 +16,12 @@ Softuni JS Back-End Workshop
 - [x]Add movie data layer
 - [x]Add movie service
 - [x]Render single movie on home page
-- [ ]Render all movies on home page
-- [ ]Show no movies screen
+- [x]Render all movies on home page
+- [x]Show no movies screen
 ### Create Movie
-- [ ]Add Movie Controller
-- [ ]Show create movie page
-- [ ]Add routes
+- [x]Add Movie Controller
+- [x]Show create movie page
+- [x]Add routes
 - [ ]Add 404 page
 - [ ]Ready body data
 - [ ]Create movie
