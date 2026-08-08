@@ -5,7 +5,9 @@ function getAll(filter = {}) {
 }
 
 function create(movieData) {
-   return movieRepository.create(movieData);
+    
+    movieData.rating = Number(movieData.rating);
+    return movieRepository.create(movieData);
 }
 
 function getById(movieId) {
