@@ -1,22 +1,20 @@
 import express from 'express';
 import { engine } from 'express-handlebars';
+import homeController from './controllers/home.controller.js';
 
 const app = express();
 
+//Setup express-handlebars
 app.engine('hbs', engine({
     extname: 'hbs'
 }));
 app.set('view engine', 'hbs');
 app.set('views', './src/views');
 
+//Setup static files
 app.use(express.static('src/public'));
 
-app.get('/', (req, res) => {
-    res.render('home')
-});
-
-app.get('/about', (req, res) => {
-    res.render('about')
-});
+//Setup routes 
+app.use('/', homeController);
 
 app.listen(5000, () => console.log('Server is running on http://localhost:5000'));
