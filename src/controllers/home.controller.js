@@ -4,9 +4,9 @@ import movieRepository from '../repositories/movieRepository.js';
 const homeController = Router();
 
 homeController.get('/', async (req, res) => {
-    const result = await movieRepository.getAll();
+    const movies = await movieRepository.getAll();
 
-    res.render('home', { movies: result });
+    res.render('home');
 });
 
 homeController.get('/about', (req, res) => {
