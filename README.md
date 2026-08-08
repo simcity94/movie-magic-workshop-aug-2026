@@ -22,8 +22,8 @@ Softuni JS Back-End Workshop
 - [x]Add Movie Controller
 - [x]Show create movie page
 - [x]Add routes
-- [ ]Add 404 page
-- [ ]Ready body data
+- [x]Add 404 page
+- [x]Ready body data
 - [ ]Create movie
 - [ ]Add action
 - [ ]Add service
