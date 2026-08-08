@@ -9,8 +9,8 @@ Softuni JS Back-End Workshop
 - [x]Setup Handlebars `npm i express-handlebars`
 - [x]Render Home Page
 - [x]Setup static files
-- [ ]Render About Page
-- [ ]Add Layout
+- [x]Render About Page
+- [x]Add Layout
 ### Architecture and dynamic rendering
 - [ ]Add home controller
 - [ ]Add movie data layer
