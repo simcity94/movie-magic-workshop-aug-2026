@@ -74,36 +74,36 @@ SoftUni JS Back-End Course Workshop
 ### Refactor Movies
  - [x] Remove uuid
  - [x] Create Movie
- - [x] Read all movies
- - [x] Movie details page 
- - [x] Remove file persistance related code
+ - [] Read all movies
+ - [] Movie details page 
+ - [] Remove file persistance related code
 
 ### Artist
- - [x] Add resources
- - [x] Add artist model
- - [x] Add artist view
- - [x] Add artist controller
- - [x] Add to routes
- - [x] Add header link
- - [x] Modify create form
- - [x] Add artist post action
- - [x] Add artist service
- - [x] Add artist repository
+ - [] Add resources
+ - [] Add artist model
+ - [] Add artist view
+ - [] Add artist controller
+ - [] Add to routes
+ - [] Add header link
+ - [] Modify create form
+ - [] Add artist post action
+ - [] Add artist service
+ - [] Add artist repository
 
 ### Attach Artist to Movie
- - [x] Add relation between artists and movies (Implicit many-to-many)
- - [x] Add page view
- - [x] Add dynamic data
- - [x] Populate artist select
- - [x] Attach function
+ - [] Add relation between artists and movies (Implicit many-to-many)
+ - [] Add page view
+ - [] Add dynamic data
+ - [] Populate artist select
+ - [] Attach function
 
 ### Show Artists on Details Page
- - [x] Modify details view
- - [x] Link to attach page
- - [x] Show dynamic cast
+ - [] Modify details view
+ - [] Link to attach page
+ - [] Show dynamic cast
 
 ### Bonuses
- - [x] Show filtered artists in attach page
- - [x] Search filter in db
+ - [] Show filtered artists in attach page
+ - [] Search filter in db
  - [ ] Name in movie (Explicit Many-to-Many)
  - [ ] Modify service export
