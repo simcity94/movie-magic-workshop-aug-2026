@@ -46,4 +46,13 @@ movieController.get('/:movieId/attach', async (req, res) => {
 
 });
 
+movieController.post('/:movieId/attach', async (req, res) => {
+    const movieId = req.params.movieId;
+    const artistId = req.body.artist;
+
+    await movieService.attachArtist(movieId, artistId);
+
+    res.redirect(`/movies/${movieId}`);
+});
+
 export default movieController;

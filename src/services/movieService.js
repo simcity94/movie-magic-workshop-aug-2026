@@ -4,6 +4,12 @@ function getAll(filter = {}) {
     return movieRepository.getAll(filter);
 }
 
+function attachArtist(movieId, artistId) {
+    const movieIdNum = Number(movieId);
+    const artistIdNum = Number(artistId);
+    return movieRepository.attachArtist(movieIdNum, artistIdNum);
+}
+
 function create(movieData) {
     
     movieData.rating = Number(movieData.rating);
@@ -21,6 +27,7 @@ const movieService = {
     getAll,
     create,
     getById,
+    attachArtist
 };
 
 export default movieService;
