@@ -74,13 +74,13 @@ SoftUni JS Back-End Course Workshop
 ### Refactor Movies
  - [x] Remove uuid
  - [x] Create Movie
- - [] Read all movies
- - [] Movie details page 
- - [] Remove file persistance related code
+ - [x] Read all movies
+ - [x] Movie details page 
+ - [x] Remove file persistance related code
 
 ### Artist
- - [] Add resources
- - [] Add artist model
+ - [x] Add resources
+ - [x] Add artist model
  - [] Add artist view
  - [] Add artist controller
  - [] Add to routes
@@ -105,5 +105,5 @@ SoftUni JS Back-End Course Workshop
 ### Bonuses
  - [] Show filtered artists in attach page
  - [] Search filter in db
- - [ ] Name in movie (Explicit Many-to-Many)
- - [ ] Modify service export
+ - [] Name in movie (Explicit Many-to-Many)
+ - [] Modify service export
