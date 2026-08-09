@@ -5,8 +5,8 @@ export function create(artistData) {
     return artistRepository.create(artistData);
 }
 
-export function getAll() {
-    return artistRepository.getAll();
+export function getAll(filter = {}) {
+    return artistRepository.getAll(filter);
 }
 
 const artistService = {
