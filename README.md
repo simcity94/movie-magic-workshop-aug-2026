@@ -81,14 +81,14 @@ SoftUni JS Back-End Course Workshop
 ### Artist
  - [x] Add resources
  - [x] Add artist model
- - [] Add artist view
- - [] Add artist controller
- - [] Add to routes
- - [] Add header link
- - [] Modify create form
- - [] Add artist post action
- - [] Add artist service
- - [] Add artist repository
+ - [x] Add artist view
+ - [x] Add artist controller
+ - [x] Add to routes
+ - [x] Add header link
+ - [x] Modify create form
+ - [x] Add artist post action
+ - [x] Add artist service
+ - [x] Add artist repository
 
 ### Attach Artist to Movie
  - [] Add relation between artists and movies (Implicit many-to-many)
