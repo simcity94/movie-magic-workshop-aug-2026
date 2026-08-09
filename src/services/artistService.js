@@ -5,8 +5,13 @@ export function create(artistData) {
     return artistRepository.create(artistData);
 }
 
+export function getAll() {
+    return artistRepository.getAll();
+}
+
 const artistService = {
     create,
+    getAll,
 };
 
 export default artistService;
