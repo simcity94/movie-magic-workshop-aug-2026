@@ -22,12 +22,27 @@ function getById(movieId) {
     return movieRepository.getById(id);
 }
 
+async function onDelete(movieId, userId) {
+    const movie = await movieRepository.getById(movieId);
+
+    if (!movie) {
+        throw new Error('Movie not found');
+    }
+
+    if (movie.userId !== userId) {
+        throw new Error('You are not authorized to delete this movie');
+    }
+
+    await movieRepository.deleteMovie(movieId, userId);
+}
+
 
 const movieService = {
     getAll,
     create,
     getById,
-    attachArtist
+    attachArtist,
+    onDelete
 };
 
 export default movieService;
