@@ -24,9 +24,12 @@ model Movie {
   description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  userId      Int?
 
   cast Artist[]
 
+  owner User? @relation(fields: [userId], references: [id])
+  
   @@map("movies")
 }
 
@@ -51,5 +54,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  movies Movie[]
   @@map("users")
 }
+
