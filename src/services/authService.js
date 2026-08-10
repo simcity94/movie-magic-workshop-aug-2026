@@ -1,9 +1,13 @@
 import userRepository from "../repositories/userRepository.js";
+import bcrypt from "bcrypt";
 
-export function registerUser(userData) {
+export async function registerUser(userData) {
+    const hashPassword = await bcrypt.hash(userData.password, 10);
 
-    return userRepository.register(userData);
-
+    return userRepository.register({
+        ...userData,
+        password: hashPassword
+    });
 };
 
 const authService = {
