@@ -22,6 +22,7 @@ async function getAll(filter = {}) {
 }
 
 async function getById(movieId) {
+
     const movie = await prisma.movie.findUnique({
         where: {
             id: movieId
@@ -29,7 +30,7 @@ async function getById(movieId) {
         include: {
             cast: true
         }
-    }); 
+    });
 
     if (!movie) {
         throw new Error('No movie found!');

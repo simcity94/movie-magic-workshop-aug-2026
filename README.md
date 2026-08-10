@@ -114,11 +114,11 @@ SoftUni JS Back-End Course Workshop
  - [x] Add resources
 
 ### Register
- - [] Add auth controller
- - [] Add register page
- - [] Add register post action
- - [] Add service
- - [] Add repository
+ - [x] Add auth controller
+ - [x] Add register page
+ - [x] Add register post action
+ - [x] Add service
+ - [x] Add repository
  - [] Add model
  - [] Hash password `npm i bcrypt`
 
