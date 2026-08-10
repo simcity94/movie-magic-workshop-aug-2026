@@ -12,12 +12,22 @@ authController.post("/register", async (req, res) => {
 
     await authService.registerUser({ email, password, repeatPassword });
 
-    res.redirect("/");
+    res.redirect("/auth/login");
 });
 
 authController.get("/login", (req, res) => {
     res.render("users/login", { pageTitle: "Login" });
 });
 
+authController.post("/login", async (req, res) => {
+    const { email, password } = req.body;
 
+    const user = await authService.loginUser({ email, password });
+
+    if (!user) {
+        return res.redirect("/auth/login");
+    }
+
+    res.redirect("/");
+});
 export default authController;
