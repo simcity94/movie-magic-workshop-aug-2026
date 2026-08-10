@@ -69,4 +69,17 @@ movieController.get('/:movieId/delete', isAuthenticated, async (req, res) => {
     res.redirect('/');
 });
 
+movieController.get('/:movieId/edit', isAuthenticated, async (req, res) => {
+    const movieId = Number(req.params.movieId);
+    const userId = req.user.id;
+
+    const movie = await movieService.getById(movieId);
+
+    if (movie.userId !== userId) {
+        return res.status(403).send('You are not authorized to edit this movie');
+    }
+
+    res.render('movies/edit', { pageTitle: 'Edit Movie', movie });
+});
+
 export default movieController;
