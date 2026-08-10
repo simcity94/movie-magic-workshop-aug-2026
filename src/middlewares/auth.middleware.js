@@ -1,4 +1,4 @@
-import jwt, { JsonWebTokenError } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 export function authMiddleware(req, res, next) {
     const token = req.cookies.auth;
@@ -18,5 +18,21 @@ export function authMiddleware(req, res, next) {
 
     next();
 };
+
+export function isAuthenticated(req, res, next) {
+    if (!req.user) {
+        return res.redirect('/auth/login');
+    }
+
+    next();
+}
+
+export function isGuest(req, res, next) {
+    if (req.user) {
+        return res.redirect('/');
+    }
+    next();
+}
+
 
 export default authMiddleware;
