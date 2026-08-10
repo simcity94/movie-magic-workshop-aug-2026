@@ -19,12 +19,16 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/movies/search">Search</a></li>
                 <!--Users-->
+                {{#if user}}
                 <li><a href="/movies/create">Create Post</a></li>
                 <li><a href="/artists/create">Create Cast</a></li>
                 <li><a href="/auth/logout">Logout</a></li>
+                <strong>Welcome, {{user.email}}</strong>
+                {{else}}
                 <!--Guest-->
                 <li><a href="/auth/login">Login</a></li>
                 <li><a href="/auth/register">Register</a></li>
+                {{/if}}
             </ul>
 
         </nav>
