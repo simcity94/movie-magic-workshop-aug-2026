@@ -128,8 +128,8 @@ SoftUni JS Back-End Course Workshop
  - [x] Add login service method
  - [x] Add findByEmail repository method
  - [x] Validate password
- - [] Issue JWT token `npm i jsonwebtoken`
- - [] Return token in cookie
+ - [x] Issue JWT token `npm i jsonwebtoken`
+ - [x] Return token in cookie
 
 ### Logout
  - [] Add logout action

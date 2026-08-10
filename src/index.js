@@ -3,6 +3,7 @@ import { engine } from 'express-handlebars';
 import homeController from './controllers/home.controller.js';
 import movieController from './controllers/movie.controller.js';
 import routes from './routes.js';
+import { authMiddleware } from './middlewares/auth.middleware.js';
 
 const app = express();
 
@@ -19,6 +20,9 @@ app.use(express.static('src/public'));
 
 //Setup body parser
 app.use(express.urlencoded());
+
+//Auth middleware
+app.use(authMiddleware);
 
 //Setup routes 
 app.use(routes);
