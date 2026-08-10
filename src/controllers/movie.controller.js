@@ -82,4 +82,13 @@ movieController.get('/:movieId/edit', isAuthenticated, async (req, res) => {
     res.render('movies/edit', { pageTitle: 'Edit Movie', movie });
 });
 
+movieController.post('/:movieId/edit', isAuthenticated, async (req, res) => {
+    const movieId = Number(req.params.movieId);
+    const userId = req.user.id;
+    const movieData = req.body;
+
+    await movieService.update(movieId, movieData, userId);
+    res.redirect(`/movies/${movieId}`);
+});
+
 export default movieController;

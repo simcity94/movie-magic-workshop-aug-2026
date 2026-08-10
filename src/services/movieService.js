@@ -36,13 +36,21 @@ async function onDelete(movieId, userId) {
     await movieRepository.deleteMovie(movieId, userId);
 }
 
+function update(movieId, movieData, userId) {
+    movieData.rating = Number(movieData.rating);
+    movieData.year = Number(movieData.year);
+    movieData.userId = userId
+    
+    return movieRepository.edit(movieId, movieData, userId);
+}
 
 const movieService = {
     getAll,
     create,
     getById,
     attachArtist,
-    onDelete
+    onDelete,
+    update
 };
 
 export default movieService;
