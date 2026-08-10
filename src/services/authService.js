@@ -1,5 +1,6 @@
 import userRepository from "../repositories/userRepository.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 export async function registerUser(userData) {
     const hashPassword = await bcrypt.hash(userData.password, 10);
@@ -21,7 +22,16 @@ export async function loginUser(userData) {
 
     if (!isPasswordValid) {
         throw new Error("Invalid password");
-    }
+    };
+
+    const payload = {
+        id: user.id,
+        email: user.email
+    };
+
+    const token = jwt.sign(payload, 'SECRETDONTTELLANYONE', { expiresIn: "2h" });
+
+    return token;
 };
 
 const authService = {
