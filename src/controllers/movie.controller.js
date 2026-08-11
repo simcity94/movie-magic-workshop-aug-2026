@@ -27,14 +27,14 @@ movieController.post('/create', isAuthenticated, async (req, res) => {
     try {
         const movieData = createMovieSchema.parse(newMovie);
         await movieService.create(movieData, userId);
-        
+
         res.redirect('/');
-        
     } catch (error) {
         if (error instanceof z.ZodError) {
             const errors = z.flattenError(error).fieldErrors;
-            
-            res.status(400).render('movies/create', { movie:req.body, errors, pageTitle: 'Create Movie' });
+            const categoryOptions = prepareCategoryViewData(newMovie);
+
+            res.status(400).render('movies/create', { movie:req.body, errors, categoryOptions, pageTitle: 'Create Movie' });
         }
     }
 });
@@ -81,6 +81,23 @@ movieController.get('/:movieId/delete', isAuthenticated, async (req, res) => {
     res.redirect('/');
 });
 
+function prepareCategoryViewData(movie) {
+    const categories = ['TV Show', 'Animation', 'Movie', 'Documentary', 'Short Film'];
+
+    const categoryOptions = categories.map(category => {
+        const value = category.toLowerCase().replaceAll(' ', '-');
+
+        const option = {
+            value,
+            label: category,
+            selected: movie.category === value
+        };
+
+        return option;
+    });
+    return categoryOptions;
+}
+
 movieController.get('/:movieId/edit', isAuthenticated, async (req, res) => {
     const movieId = Number(req.params.movieId);
     const userId = req.user.id;
@@ -91,7 +108,9 @@ movieController.get('/:movieId/edit', isAuthenticated, async (req, res) => {
         return res.status(403).send('You are not authorized to edit this movie');
     }
 
-    res.render('movies/edit', { pageTitle: 'Edit Movie', movie });
+    const categoryOptions = prepareCategoryViewData(movie);
+
+    res.render('movies/edit', { pageTitle: 'Edit Movie', movie, categoryOptions });
 });
 
 movieController.post('/:movieId/edit', isAuthenticated, async (req, res) => {
