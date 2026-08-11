@@ -23,19 +23,5 @@ export const createMovieSchema = z.object({
         .max(10, {message: "Rating must be at most 10"}),
     description: z.string()
         .min(20, {message: "Description must be at least 20 characters long"})
-        .regex(/^[A-Za-z0-9 ]+$/, {message: "Description must contain only letters, numbers, and spaces"}),
-    // name: z.string()
-    //     .min(5, {message: "Name must be at least 5 characters long"})
-    //     .regex(/^[A-Za-z0-9 ]+$/, {message: "Name must contain only letters, numbers, and spaces"}),
-    // age: z.coerce.number()
-    //     .min(1, {message: "Age must be at least 0"})
-    //     .max(120, {message: "Age must be at most 120"}),
-    // born: z.string()
-    //     .min(10, {message: "Born must be at least 10 characters long"})
-    //     .regex(/^[A-Za-z0-9 ]+$/, {message: "Born must contain only letters, numbers, and spaces"}),
-    // character: z.string()
-    //     .min(5, {message: "Character must be at least 5 characters long"})
-    //     .regex(/^[A-Za-z0-9 ]+$/, {message: "Character must contain only letters, numbers, and spaces"}),
-    
+        .regex(/^[A-Za-z0-9 ]+$/, {message: "Description must contain only letters, numbers, and spaces"})
 });
-
