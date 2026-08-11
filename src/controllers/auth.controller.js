@@ -2,6 +2,7 @@ import { Router } from "express";
 import authService from "../services/authService.js";
 import { isAuthenticated, isGuest } from "../middlewares/auth.middleware.js";
 import createUserSchema from "../schemas/userSchema.js";
+import { getErrorMessage } from "../utils/errorUtils.js";
 
 const authController = Router();
 
@@ -14,14 +15,15 @@ authController.post("/register", isGuest, async (req, res) => {
 
     try {
         
-        const userData = createUserSchema.parse(req.body);
+        const userData = await createUserSchema.parseAsync(req.body);
         const token = await authService.registerUser(userData);
     
         res.cookie('auth', token, { httpOnly: true });
         res.redirect("/auth/login");
 
     } catch (error) {
-        res.render('users/register', {error: error.message, pageTitle: "Register"});
+        const errorMessage = getErrorMessage(error);
+        res.render("users/register", {error: errorMessage});
     }
 
 });
