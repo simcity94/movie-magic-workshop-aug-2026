@@ -163,11 +163,11 @@ SoftUni JS Back-End Course Workshop
 
 ## Workshop 4 - Validation and Error Handling
 
- - [] Add resources
+ - [x] Add resources
 
 ### Movie validation and error handling
- - [] Create Movie Scheme with Zod
- - [] Catch, extract and return errors
+ - [x] Create Movie Scheme with Zod
+ - [x] Catch, extract and return errors
  - [] Populate already filled data
  - [] Populate select category
  - [] Show single error

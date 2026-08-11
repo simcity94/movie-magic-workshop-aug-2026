@@ -11,8 +11,6 @@ function attachArtist(movieId, artistId) {
 }
 
 function create(movieData, userId) {
-    movieData.rating = Number(movieData.rating);
-    movieData.year = Number(movieData.year);
     movieData.userId = userId;
     return movieRepository.create(movieData);
 }
