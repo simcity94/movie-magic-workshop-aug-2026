@@ -30,13 +30,28 @@ movieController.post('/create', isAuthenticated, async (req, res) => {
 
         res.redirect('/');
     } catch (error) {
-        if (error instanceof z.ZodError) {
-            const errors = z.flattenError(error).fieldErrors;
-            const categoryOptions = prepareCategoryViewData(newMovie);
-            // const firstError = Object.values(errors).flat()[0];
+        let errors = {};
+        let errorMessage = null;
 
-            res.status(400).render('movies/create', { movie:req.body, errors, categoryOptions, pageTitle: 'Create Movie' });
+        let categoryOptions = prepareCategoryViewData(newMovie);
+
+        if (error.name === 'ZodError') {
+            errors = z.flattenError(error).fieldErrors;
+
+        } else if (error.name === 'PrismaClientKnownRequestError') {
+            switch (error.code) {
+                case 'P2002':
+                    errorMessage = 'A movie with this title already exists';
+                    break;
+                case 'P2003':
+                    errorMessage = 'Invalid category selected';
+                    break;
+            }
+        } else {
+            errorMessage = error.message || 'An unexpected error occurred';
         }
+
+        res.status(400).render('movies/create', { movie:req.body, errors, categoryOptions, pageTitle: 'Create Movie' });
     }
 });
 
