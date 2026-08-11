@@ -33,8 +33,9 @@ movieController.post('/create', isAuthenticated, async (req, res) => {
         if (error instanceof z.ZodError) {
             const errors = z.flattenError(error).fieldErrors;
             const categoryOptions = prepareCategoryViewData(newMovie);
+            const firstError = Object.values(errors).flat()[0];
 
-            res.status(400).render('movies/create', { movie:req.body, errors, categoryOptions, pageTitle: 'Create Movie' });
+            res.status(400).render('movies/create', { movie:req.body, error: firstError, categoryOptions, pageTitle: 'Create Movie' });
         }
     }
 });
