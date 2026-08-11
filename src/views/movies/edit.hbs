@@ -11,6 +11,9 @@
                             <li>
                                 <label for="title">Title:</label>
                                 <input type="text" class="inputFields" id="title" name="title" value="{{movie.title}}" />
+                                {{#each errors.title}}
+                                    <p class="error" >{{this}}</p>
+                                {{/each}}
                             </li>
                             <li>
                                 {{> selectCategory }}
